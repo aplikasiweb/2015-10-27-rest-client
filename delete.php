@@ -3,7 +3,7 @@
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "http://laravel-api-starter.dev/api/cats/12",
+  CURLOPT_URL => "http://laravel-api-starter.dev/api/colors/11",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
@@ -14,7 +14,7 @@ curl_setopt_array($curl, array(
     "authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbGFyYXZlbC1hcGktc3RhcnRlci5kZXYvYXBpL2xvZ2luIiwiaWF0IjoxNDQ2MDQxOTk2LCJleHAiOjE0NDcyNTE1OTYsIm5iZiI6MTQ0NjA0MTk5NiwianRpIjoiOTVlMWQzMGFkODhiNWM0MWNjNTNiZTYxYjkzODdjNDgiLCJzdWIiOjF9.E6xlWH0dRCNfoDKO4g_97E70Pdezr1356oPudXKs3e0",
     "cache-control: no-cache",
     "content-type: application/x-www-form-urlencoded",
-    "postman-token: a576a2b2-c201-cf30-5bff-7a92b00bc872"
+    "postman-token: 5b2f21f0-4e36-688a-bcd0-1e22728e154e"
   ),
 ));
 

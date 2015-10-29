@@ -1,29 +1,31 @@
 <?php
 
-// Get cURL resource
 $curl = curl_init();
 
-// Set some options - we are passing in a useragent too here
 curl_setopt_array($curl, array(
-    CURLOPT_RETURNTRANSFER => 1,
-    CURLOPT_URL => 'http://laravel-api-starter.dev/api/cats?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbGFyYXZlbC1hcGktc3RhcnRlci5kZXYvYXBpL2xvZ2luIiwiaWF0IjoxNDQ2MDAwMzQ1LCJleHAiOjE0NDcyMDk5NDUsIm5iZiI6MTQ0NjAwMDM0NSwianRpIjoiNTMwNDlhZGM2NmE1ZDNlYzExZTVlYjgzZGVmOWJiODUiLCJzdWIiOjF9.0iRhmyGdJchwDwXosgjCTyWMXgpHAL_mXeZtGewYIB0',
-    CURLOPT_USERAGENT => 'Sample cURL Request',
-    CURLOPT_POST => 1,
-    CURLOPT_POSTFIELDS => array(
-        'name' => 'Kucing',
-        'age' => '3'
-    )
+  CURLOPT_URL => "http://laravel-api-starter.dev/api/colors",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "POST",
+  CURLOPT_POSTFIELDS => "name=Red&is_active=1&code=111111",
+  CURLOPT_HTTPHEADER => array(
+    "authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbGFyYXZlbC1hcGktc3RhcnRlci5kZXYvYXBpL2xvZ2luIiwiaWF0IjoxNDQ2MDAwMzQ1LCJleHAiOjE0NDcyMDk5NDUsIm5iZiI6MTQ0NjAwMDM0NSwianRpIjoiNTMwNDlhZGM2NmE1ZDNlYzExZTVlYjgzZGVmOWJiODUiLCJzdWIiOjF9.0iRhmyGdJchwDwXosgjCTyWMXgpHAL_mXeZtGewYIB0",
+    "cache-control: no-cache",
+    "content-type: application/x-www-form-urlencoded",
+    "postman-token: 051c042f-a79a-2152-eb58-38fa182b3427"
+  ),
 ));
 
-// Send the request & save response to $resp
 $response = curl_exec($curl);
+$err = curl_error($curl);
 
-$result = json_decode($response);
-
-if ($result->cat) {
-    echo 'New cat added!';
-}
-
-// Close request to clear up some resources
 curl_close($curl);
-?>
+
+if ($err) {
+  echo "cURL Error #:" . $err;
+} else {
+  echo $response;
+}
